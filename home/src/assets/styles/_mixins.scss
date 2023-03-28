@@ -1,0 +1,55 @@
+@import './variables';
+
+@mixin container($top-pad, $bottom-pad) {
+    padding: $top-pad 25% $bottom-pad 25%;
+    height: 100vh;
+    background-color: $mainbBackground;
+}
+
+@mixin card {
+    background: $white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px $shadow-color, 0 8px 16px $shadow-color;
+    width: 420px;
+    margin: 1rem 0;
+}
+
+@mixin input-mixin {
+    width: 100%;
+    background: none;
+    border: 1px solid $input-border-color;
+    padding: 14px 16px;
+    font-size: 17px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+// responsive
+@mixin breakpoints($point) {
+    @if $point == mobile {
+        @media (max-width: 767px) {
+            @include container(130px, 130px);
+            display: flex;
+            @content;
+        }
+    } @else if $point == small {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @include container(130px, 130px);
+            display: flex;
+            @content;
+        }
+    } @else if $point == medium {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @include container(130px, 130px);
+            display: flex;
+            @content;
+        }
+    } @else if $point == large {
+        @media (min-width: 1200px){
+            @include container(130px, 130px);
+            display: flex;
+            @content;
+        }
+    }
+}

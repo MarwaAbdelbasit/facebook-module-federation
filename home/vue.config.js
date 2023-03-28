@@ -2,7 +2,7 @@ const ModuleFederationPlugin =
    require("webpack").container.ModuleFederationPlugin;
 
    module.exports = {
-    publicPath: "http://localhost:3000/",
+    // publicPath: "http://localhost:3000/",
     configureWebpack: {
       plugins: [
         new ModuleFederationPlugin({
@@ -17,7 +17,7 @@ const ModuleFederationPlugin =
         }),
       ],
     },
-    devServer: {
-      port: 3000,
-    },
+    // devServer: {
+    //   port: 3000,
+    // },
   };

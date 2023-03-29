@@ -9,6 +9,7 @@
             <div class="card" v-for="(feed, index) in feeds" :key="index">
                 <h1 class="card__title">{{ feed.title }}</h1>
                 <p class="card__body">{{ feed.body }}</p>
+                <LikeBtn/>
             </div>
         </div>
     </main>
@@ -16,6 +17,7 @@
 
 <script>
 import feeds from '../data/feeds.json';
+import LikeBtn from '../../../like/src/components/LikeBtn.vue';
 
 export default {
     name: 'FeedsView',
@@ -23,6 +25,10 @@ export default {
     computed: {
         feeds() { return feeds; }
     },
+
+    components: {
+        LikeBtn
+    }
 }
 </script>
 

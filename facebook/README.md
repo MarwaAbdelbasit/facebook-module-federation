@@ -1,4 +1,4 @@
-# facebook-login
+# facebook
 
 ## Project setup
 ```

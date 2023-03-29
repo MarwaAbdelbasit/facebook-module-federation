@@ -2,6 +2,7 @@ import { h, createApp } from 'vue';
 import singleSpaVue from 'single-spa-vue';
 
 import App from './App.vue';
+import router from './router';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -32,7 +33,8 @@ const vueLifecycles = singleSpaVue({
   handleInstance(app) {
     library.add(faThumbsUp, feThumbsUp);
     app.component('font-awesome-icon', FontAwesomeIcon);
-  }
+    app.use(router);
+  },
 });
 
 export const bootstrap = vueLifecycles.bootstrap;

@@ -1,4 +1,4 @@
-# like-btn
+# like
 
 ## Project setup
 ```

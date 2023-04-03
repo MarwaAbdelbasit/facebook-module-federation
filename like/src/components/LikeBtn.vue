@@ -4,6 +4,7 @@
         <font-awesome-icon v-else icon="fa-regular fa-thumbs-up" />
         <span v-if="!solid"> Like</span>
         <span v-else> Unlike</span>
+        {{ btnText }}
     </button>
 </template>
 
@@ -15,6 +16,7 @@ export default {
             solid: false,
         }
     },
+    props: ["btnText"]
 }
 </script>
 

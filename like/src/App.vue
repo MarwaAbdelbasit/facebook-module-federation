@@ -1,5 +1,5 @@
 <template>
-  <LikeBtn />
+  <LikeBtn :btnText="btnText"/>
 </template>
 
 <script>
@@ -7,7 +7,8 @@ import LikeBtn from './components/LikeBtn.vue';
 
 export default {
   name: 'App',
-  components: { LikeBtn }
+  components: { LikeBtn },
+  props: ["btnText"],
 }
 </script>
 

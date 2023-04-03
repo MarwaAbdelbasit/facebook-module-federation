@@ -9,7 +9,14 @@
             <div class="card" v-for="(feed, index) in feeds" :key="index">
                 <h1 class="card__title">{{ feed.title }}</h1>
                 <p class="card__body">{{ feed.body }}</p>
-                <LikeBtn/>
+                <Parcel
+                    v-on:parcel="likeParcelMounted()"
+                    :config="likeParcelConfig"
+                    :wrapWith="'div'"
+                    :mountParcel="mountParcel"
+                    :parcelProps="likeParcelProps()"
+                />
+                <!-- :parcelProps="vueParcelProps()" -->
             </div>
         </div>
     </main>
@@ -17,7 +24,9 @@
 
 <script>
 import feeds from '../data/feeds.json';
-import LikeBtn from '../../../like/src/components/LikeBtn.vue';
+// import LikeBtn from '../../../like/src/components/LikeBtn.vue';
+import Parcel from "single-spa-vue/parcel";
+import { mountRootParcel } from "single-spa";
 
 export default {
     name: 'FeedsView',
@@ -26,8 +35,28 @@ export default {
         feeds() { return feeds; }
     },
 
+    data() {
+        return {
+            // eslint-disable-next-line no-undef
+            likeParcelConfig: System.import("@like/like"),
+            mountParcel: mountRootParcel,
+        }
+    },
+
+    methods: {
+        likeParcelMounted() {
+            console.log('Like parcel mounted');
+        },
+
+        likeParcelProps() {
+            return {
+                btnText: ''
+            }
+        }
+    },
+
     components: {
-        LikeBtn
+        Parcel
     }
 }
 </script>
